@@ -1,0 +1,1144 @@
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-pink: #ff4d8d;
+    --secondary-pink: #ff85a2;
+    --light-pink: #ffd6e0;
+    --dark-pink: #e63972;
+    --gold: #ffd700;
+    --white: #fff;
+    --shadow: rgba(255, 77, 141, 0.2);
+    --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body {
+    font-family: 'Poppins', 'Hind', sans-serif;
+    background: linear-gradient(135deg, #fff0f7 0%, #ffe6f2 50%, #ffeff6 100%);
+    color: #5a3d5c;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Floating Hearts Background */
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+    content: "💖";
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.1;
+    animation: floatHeart 25s linear infinite;
+}
+
+.floating-hearts::before {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.floating-hearts::after {
+    top: 20%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Romantic Header */
+.romantic-header {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.95) 0%, rgba(255,214,224,0.95) 100%);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px var(--shadow);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    animation: gentleFloat 6s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.main-title {
+    font-family: 'Kalam', 'Great Vibes', cursive;
+    font-size: 4.5rem;
+    background: linear-gradient(to right, var(--dark-pink), var(--primary-pink), #ff1493);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 0 rgba(255, 214, 224, 0.5);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 77, 141, 0.5),
+                     0 0 40px rgba(255, 77, 141, 0.3),
+                     3px 3px 0 rgba(255, 214, 224, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 77, 141, 0.8),
+                     0 0 60px rgba(255, 77, 141, 0.5),
+                     3px 3px 0 rgba(255, 214, 224, 0.5);
+    }
+}
+
+.subtitle {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+}
+
+.marathi-poem-line {
+    font-family: 'Kalam', cursive;
+    font-size: 1.8rem;
+    color: var(--primary-pink);
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.love-divider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.love-divider i {
+    font-size: 2rem;
+    color: var(--primary-pink);
+    animation: heartbeat 1.2s infinite;
+}
+
+.love-divider i:nth-child(2) { animation-delay: 0.2s; }
+.love-divider i:nth-child(3) { animation-delay: 0.4s; }
+.love-divider i:nth-child(4) { animation-delay: 0.6s; }
+.love-divider i:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* Poem Section */
+.poem-section {
+    margin-bottom: 50px;
+}
+
+.poem-container {
+    background: linear-gradient(145deg, #ffffff, #fff5f9);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid var(--light-pink);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.marathi-poem {
+    font-family: 'Kalam', cursive;
+    font-size: 2rem;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--dark-pink);
+    padding: 30px;
+    background: rgba(255, 245, 240, 0.7);
+    border-radius: 20px;
+    border-left: 8px solid var(--primary-pink);
+}
+
+.marathi-poem p {
+    margin-bottom: 10px;
+    animation: fadeInUp 0.8s forwards;
+}
+
+.poem-translation {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #6d4c6d;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    font-style: italic;
+    border-right: 5px solid var(--dark-pink);
+}
+
+.poem-author {
+    text-align: right;
+    font-family: 'Kalam', cursive;
+    font-size: 2.2rem;
+    color: var(--primary-pink);
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--light-pink);
+}
+
+/* Collage Section */
+.collage-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: 'Kalam', cursive;
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "💖";
+    position: absolute;
+    right: 15%;
+    top: 0;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--secondary-pink);
+    margin-bottom: 40px;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Collage Grid Layout */
+.collage-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    animation: gridAppear 1s ease-out;
+}
+
+@keyframes gridAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 300px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+    transform-style: preserve-3d;
+}
+
+.photo-item:hover {
+    transform: translateY(-10px) rotateY(5deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+.photo-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3));
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover::before {
+    opacity: 1;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.photo-item:hover img {
+    transform: scale(1.1);
+}
+
+.photo-item::after {
+    content: '👁️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 3rem;
+    color: white;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.photo-item:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Random rotation for collage effect */
+.photo-item:nth-child(3n) {
+    transform: rotate(2deg);
+}
+
+.photo-item:nth-child(3n+1) {
+    transform: rotate(-1deg);
+}
+
+.photo-item:nth-child(3n+2) {
+    transform: rotate(1.5deg);
+}
+
+.photo-item:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.05);
+}
+
+.collage-instructions {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 1.4rem;
+    color: var(--dark-pink);
+}
+
+.collage-instructions i {
+    color: var(--primary-pink);
+    margin-right: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: var(--primary-pink);
+}
+
+.lightbox-image-container {
+    max-width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.lightbox-nav {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: var(--primary-pink);
+    transform: scale(1.1);
+    border-color: var(--primary-pink);
+}
+
+.photo-counter {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    min-width: 100px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+/* Quote Section */
+.quote-section {
+    margin: 60px 0;
+}
+
+.quote-container {
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 40px var(--shadow);
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.quote-text {
+    font-family: 'Kalam', cursive;
+    font-size: 2.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.quote-text i {
+    font-size: 2rem;
+    margin: 0 15px;
+    opacity: 0.7;
+}
+
+.quote-translation {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+/* Footer */
+.love-footer {
+    background: linear-gradient(135deg, var(--dark-pink), var(--primary-pink));
+    color: white;
+    padding: 50px 30px;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-message {
+    font-family: 'Kalam', cursive;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.footer-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    font-size: 2.5rem;
+}
+
+.footer-hearts i {
+    animation: floatUp 3s ease-in-out infinite;
+}
+
+.footer-hearts i:nth-child(2) { animation-delay: 0.5s; }
+.footer-hearts i:nth-child(3) { animation-delay: 1s; }
+
+/* ===== LOVE DECLARATION ANIMATION ===== */
+.love-declaration {
+    margin: 50px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 77, 141, 0.1), rgba(255, 133, 162, 0.1));
+    border-radius: 25px;
+    border: 2px solid var(--light-pink);
+    position: relative;
+    overflow: hidden;
+}
+
+.love-declaration::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--primary-pink) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.05;
+    animation: floatBackground 20s linear infinite;
+}
+
+@keyframes floatBackground {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.declaration-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.declaration-text {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    perspective: 1000px;
+}
+
+.word {
+    font-family: 'Kalam', cursive;
+    font-size: 2.5rem;
+    color: var(--dark-pink);
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(255, 77, 141, 0.2);
+    display: inline-block;
+    transform: translateY(100px) rotateX(-90deg);
+    opacity: 0;
+    animation: wordAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: calc(var(--i) * 0.3s);
+}
+
+@keyframes wordAppear {
+    to {
+        transform: translateY(0) rotateX(0);
+        opacity: 1;
+    }
+}
+
+.word:hover {
+    transform: translateY(-10px) scale(1.1);
+    background: var(--primary-pink);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.name-heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.name-heart i {
+    font-size: 2.5rem;
+    color: var(--primary-pink);
+    animation: heartbeat 1.2s infinite;
+}
+
+/* Update the .name class in your CSS */
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    background: linear-gradient(to right, 
+        #ff4d8d,      /* Primary pink */
+        #ff85a2,      /* Secondary pink */
+        #e63972,      /* Dark pink */
+        #ff1493       /* Deep pink */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 
+        2px 2px 0 rgba(255, 214, 224, 0.5),
+        0 0 20px rgba(255, 77, 141, 0.3);
+    animation: nameGlow 3s ease-in-out infinite alternate;
+    padding: 0 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.name::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, 
+        rgba(255, 77, 141, 0.1),
+        rgba(255, 133, 162, 0.1),
+        rgba(230, 57, 114, 0.1)
+    );
+    border-radius: 20px;
+    z-index: -1;
+    filter: blur(15px);
+    animation: nameBackground 4s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+    from {
+        text-shadow: 
+            2px 2px 0 rgba(255, 214, 224, 0.5),
+            0 0 20px rgba(255, 77, 141, 0.3),
+            0 0 40px rgba(255, 77, 141, 0.2);
+    }
+    to {
+        text-shadow: 
+            2px 2px 0 rgba(255, 214, 224, 0.7),
+            0 0 30px rgba(255, 77, 141, 0.5),
+            0 0 60px rgba(255, 77, 141, 0.3),
+            0 0 80px rgba(255, 77, 141, 0.1);
+    }
+}
+
+@keyframes nameBackground {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* Update heart colors to match */
+.name-heart i {
+    font-size: 2.5rem;
+    color: #ff4d8d;  /* Primary pink */
+    animation: heartbeat 1.2s infinite;
+    text-shadow: 0 0 15px rgba(255, 77, 141, 0.5);
+}
+
+/* Optional: Add a subtle pink background to the whole name section */
+.name-heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(255, 77, 141, 0.05);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 77, 141, 0.1);
+    animation: pulseGlow 2s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes pulseGlow {
+    0%, 100% { 
+        transform: scale(1);
+        background: rgba(255, 77, 141, 0.05);
+    }
+    50% { 
+        transform: scale(1.02);
+        background: rgba(255, 77, 141, 0.1);
+        box-shadow: 0 10px 30px rgba(255, 77, 141, 0.2);
+    }
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .name {
+        font-size: 3rem;
+        padding: 0 15px;
+    }
+    
+    .name::before {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        filter: blur(10px);
+    }
+    
+    .name-heart i {
+        font-size: 2rem;
+    }
+    
+    .name-heart {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .name {
+        font-size: 2.5rem;
+        padding: 0 10px;
+    }
+}
+
+@keyframes nameGlow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 77, 141, 0.5),
+                     0 0 40px rgba(255, 77, 141, 0.3);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 77, 141, 0.8),
+                     0 0 60px rgba(255, 77, 141, 0.5);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.declaration-message {
+    margin: 40px 0;
+}
+
+.marathi-line {
+    font-family: 'Kalam', cursive;
+    font-size: 2.8rem;
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.marathi-line::before,
+.marathi-line::after {
+    content: "💖";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    animation: spinAround 4s linear infinite;
+}
+
+.marathi-line::before {
+    left: -40px;
+}
+
+.marathi-line::after {
+    right: -40px;
+}
+
+@keyframes spinAround {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+.english-line {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--secondary-pink);
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 2s forwards;
+}
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.time-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    min-width: 150px;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.time-point:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 77, 141, 0.3);
+}
+
+.time-point.past { animation-delay: 0.5s; }
+.time-point.present { animation-delay: 0.8s; }
+.time-point.future { animation-delay: 1.1s; }
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.time-point i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-pink);
+}
+
+.time-point.past i {
+    color: #8a2be2; /* Purple for past */
+    animation: fadeInOut 2s infinite;
+}
+
+.time-point.present i {
+    color: var(--primary-pink); /* Pink for present */
+    animation: heartbeat 1.2s infinite;
+}
+
+.time-point.future i {
+    color: #00bfff; /* Blue for future */
+    animation: spin 3s linear infinite;
+}
+
+.time-point span {
+    font-family: 'Kalam', cursive;
+    font-size: 1.5rem;
+    color: var(--dark-pink);
+    font-weight: bold;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Responsive Design for Declaration */
+@media (max-width: 768px) {
+    .love-declaration {
+        padding: 30px 20px;
+        margin: 30px 0;
+    }
+    
+    .word {
+        font-size: 1.8rem;
+        padding: 8px 15px;
+    }
+    
+    .name {
+        font-size: 3rem;
+    }
+    
+    .name-heart i {
+        font-size: 2rem;
+    }
+    
+    .marathi-line {
+        font-size: 2rem;
+        padding: 8px 20px;
+    }
+    
+    .marathi-line::before,
+    .marathi-line::after {
+        font-size: 1.5rem;
+    }
+    
+    .marathi-line::before {
+        left: -30px;
+    }
+    
+    .marathi-line::after {
+        right: -30px;
+    }
+    
+    .english-line {
+        font-size: 1.6rem;
+    }
+    
+    .timeline {
+        gap: 20px;
+    }
+    
+    .time-point {
+        min-width: 120px;
+        padding: 15px;
+    }
+    
+    .time-point i {
+        font-size: 2rem;
+    }
+    
+    .time-point span {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .declaration-text {
+        gap: 10px;
+    }
+    
+    .word {
+        font-size: 1.5rem;
+        padding: 6px 12px;
+    }
+    
+    .name {
+        font-size: 2.5rem;
+    }
+    
+    .marathi-line {
+        font-size: 1.8rem;
+    }
+    
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .time-point {
+        width: 80%;
+        min-width: auto;
+    }
+}
+
+@keyframes floatUp {
+    0%, 100% { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-20px) scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+.footer-note {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.2rem;
+    margin-top: 30px;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .collage-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
+    
+    .collage-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+    }
+    
+    .photo-item {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .main-title {
+        font-size: 2.8rem;
+    }
+    
+    .subtitle {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.8rem;
+    }
+    
+    .collage-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 12px;
+        padding: 10px;
+    }
+    
+    .photo-item {
+        height: 200px;
+    }
+    
+    .marathi-poem {
+        font-size: 1.6rem;
+        padding: 20px;
+    }
+    
+    .poem-translation {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+    
+    .romantic-header {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .collage-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.6rem;
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .photo-counter {
+        font-size: 1.2rem;
+        min-width: 80px;
+    }
+}
